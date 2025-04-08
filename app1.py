@@ -247,6 +247,6 @@ with col_right:
                     parts=[types.Part.from_text(text=bot_response)]
                 )
             )
-            st.experimental_rerun()
+            #st.experimental_rerun()
             
     st.markdown('</div>', unsafe_allow_html=True)
