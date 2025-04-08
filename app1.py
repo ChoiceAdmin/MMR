@@ -6,7 +6,17 @@ from google.genai import types
 # -----------------------
 # Setup: Credentials
 # -----------------------
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "C:/Users/sundeep.v/Downloads/interactive-ai-01-454009-bf54a9ac7759.json"
+
+# When deploying on Streamlit Community Cloud, use st.secrets; for local development, fallback to your file.
+if "google" in st.secrets:
+    credentials_json = st.secrets["google"]["credentials"]
+    temp_cred_file = "temp_google_credentials.json"
+    with open(temp_cred_file, "w") as f:
+        f.write(credentials_json)
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = temp_cred_file
+else:
+    # Update this path for local development if needed.
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "C:/Users/sundeep.v/Downloads/interactive-ai-01-454009-bf54a9ac7759.json"
 
 # -----------------------
 # Helper Functions

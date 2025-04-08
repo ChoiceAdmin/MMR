@@ -1,0 +1,16 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment files
+.env
+
+# VSCode settings
+.vscode/
+
+# Streamlit cache and logs
+.streamlit/
+
+# Do not push your credentials file
+*.json
